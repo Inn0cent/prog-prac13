@@ -1,7 +1,7 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-
+import java.util.ArrayList;
 /**
  * Write a description of class SaveDB here.
  * 
@@ -10,10 +10,16 @@ import java.io.ObjectOutputStream;
  */
 public class SaveDB
 {
-
+    
+    LoadDB loader;
+    
     public SaveDB()
     {
-        
+        loader = new LoadDB();
+    }
+    
+    public void saveItem(String filename, Item item){
+        ArrayList<Item> = loader.loadItems(filename);
     }
 
     public void serializeDB(String filename, Database db){
