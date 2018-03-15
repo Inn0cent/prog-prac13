@@ -19,8 +19,19 @@ public class VideoGame extends Item
         company = theCompany;
     }
     
+    public VideoGame(String args[]){
+        super(args[1]);
+        company = args[4];
+        setOwn(Boolean.parseBoolean(args[2]));
+        setComment(args[3]);
+    }
+    
     public String getCompany(){
         return company;
+    }
+    
+    public String toString(){
+        return "VG," + super.toString() + "," + company;
     }
     
     public void print(){

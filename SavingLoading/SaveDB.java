@@ -1,7 +1,9 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
 /**
  * Write a description of class SaveDB here.
  * 
@@ -11,15 +13,23 @@ import java.util.ArrayList;
 public class SaveDB
 {
     
-    LoadDB loader;
-    
     public SaveDB()
     {
-        loader = new LoadDB();
+        
     }
     
     public void saveItem(String filename, Item item){
-        ArrayList<Item> = loader.loadItems(filename);
+        String data = item.toString();
+        try{
+            PrintWriter out = new PrintWriter(new FileWriter(filename, true));
+            out.println(data);
+            out.close();
+        } catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + filename + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file '" + filename + "' instansiating with curent string");                  
+        }
     }
 
     public void serializeDB(String filename, Database db){

@@ -1,12 +1,12 @@
 
 public class Menu
 {
-    
+
     Database db;
     StringInput input;
     SaveDB saver;
     LoadDB loader;
-    
+
     public Menu(Database db)
     {
         this.db = db;
@@ -14,19 +14,23 @@ public class Menu
         saver = new SaveDB();
         loader = new LoadDB();
     }
-    
+
     public void selectOption(){
-        int option = outputOptions();
-        switch(option){
-            case 1: db.addItem(addVG()); break;
-            case 2: db.addItem(addCD()); break;
-            case 3: db.addItem(addDVD()); break;
-            case 4: save(); break;
-            case 5: load(); break;
-            default: System.out.println("Invalid entry");
+        boolean flag = false;
+        while(!flag){
+            int option = outputOptions();
+            switch(option){
+                case 1: db.addItem(addVG()); break;
+                case 2: db.addItem(addCD()); break;
+                case 3: db.addItem(addDVD()); break;
+                case 4: save(); break;
+                case 5: load(); break;
+                case 6: db.list(); break;
+                default: flag = true;
+            }
         }
     }
-    
+
     public VideoGame addVG(){
         String title;
         String comp;
@@ -37,7 +41,7 @@ public class Menu
         comp = input.enterData();
         return new VideoGame(title, comp);
     }
-    
+
     public CD addCD(){
         String title;
         String artist;
@@ -56,7 +60,7 @@ public class Menu
         time = Integer.parseInt(input.enterData());
         return new CD(title, artist, tracks, time);
     }
-    
+
     public DVD addDVD(){
         String title;
         String director;
@@ -71,21 +75,21 @@ public class Menu
         time = Integer.parseInt(input.enterData());
         return new DVD(title, director, time);
     }
-    
+
     public void save(){
         String filename;
         System.out.print("Filename: ");
         filename = input.enterData();
         saver.serializeDB(filename, db);
     }
-    
+
     public void load(){
         String filename;
         System.out.print("Filename: ");
         filename = input.enterData();
         db = loader.deserialize(filename);
     }
-    
+
     public int outputOptions(){
         System.out.println();
         System.out.println("1: Add a video game");
@@ -93,6 +97,7 @@ public class Menu
         System.out.println("3: Add a DVD");
         System.out.println("4: Save the database");
         System.out.println("5: Load a database");
+        System.out.println("6: Output the contents of the database");
         System.out.print("Select: ");
         return Integer.parseInt(input.enterData());
     }

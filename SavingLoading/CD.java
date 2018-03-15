@@ -23,6 +23,14 @@ public class CD extends TimeItem
         artist = theArtist;
         numberOfTracks = tracks;
     }
+    
+    public CD(String args[]){
+        super(args[1], Integer.parseInt(args[4]));
+        setOwn(Boolean.parseBoolean(args[2]));
+        setComment(args[3]);
+        artist = args[5];
+        numberOfTracks = Integer.parseInt(args[6]);
+    }
 
     /**
      * @return The artist for this CD.
@@ -38,6 +46,10 @@ public class CD extends TimeItem
     public int getNumberOfTracks()
     {
         return numberOfTracks;
+    }
+    
+    public String toString(){
+        return "CD," + super.toString() + "," + artist + "," + numberOfTracks;
     }
     
     /**

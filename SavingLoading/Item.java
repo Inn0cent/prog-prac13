@@ -59,6 +59,11 @@ public class Item implements Serializable
         return gotIt;
     }
 
+    @Override
+    public String toString(){
+        return title +  "," + gotIt + "," + comment;
+    }
+    
     /**
      * Print details about this item to the text terminal.
      */

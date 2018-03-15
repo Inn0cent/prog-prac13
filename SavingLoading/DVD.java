@@ -21,6 +21,13 @@ public class DVD extends TimeItem
         super(theTitle, time);
         director = theDirector;
     }
+    
+    public DVD(String[] args){
+        super(args[1], Integer.parseInt(args[4]));
+        setOwn(Boolean.parseBoolean(args[2]));
+        setComment(args[3]);
+        director = args[5];
+    }
 
     /**
      * @return The director for this DVD.
@@ -28,6 +35,10 @@ public class DVD extends TimeItem
     public String getDirector()
     {
         return director;
+    }
+    
+    public String toString(){
+        return "DVD," + super.toString() + "," + director;
     }
     
     public void print(){

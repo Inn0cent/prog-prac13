@@ -19,6 +19,10 @@ public class TimeItem extends Item
         playingTime = time;
     }
     
+    public String toString(){
+        return super.toString() + "," + playingTime;
+    }
+    
     public void print(){
         super.print();
         System.out.println("time: " + playingTime + " mins");
