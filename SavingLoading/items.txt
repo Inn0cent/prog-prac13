@@ -1,3 +1,0 @@
-VG,Skyman,false,,Beth
-DVD,The job,false,,120,ritch
-CD,Black,false,,200,Blackdet,5

@@ -31,6 +31,19 @@ public class SaveDB
             System.out.println("Error reading file '" + filename + "' instansiating with curent string");                  
         }
     }
+    
+    public void clearFile(String filename){
+        try{
+            PrintWriter writer = new PrintWriter(filename);
+            //writer.print("");
+            writer.close();
+        } catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + filename + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file '" + filename + "' instansiating with curent string");                  
+        }
+    }
 
     public void serializeDB(String filename, Database db){
         FileOutputStream fout= null;
