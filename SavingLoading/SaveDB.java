@@ -35,7 +35,6 @@ public class SaveDB
     public void clearFile(String filename){
         try{
             PrintWriter writer = new PrintWriter(filename);
-            //writer.print("");
             writer.close();
         } catch(FileNotFoundException ex) {
             System.out.println("Unable to open file '" + filename + "'");                
