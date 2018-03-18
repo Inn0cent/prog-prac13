@@ -54,7 +54,7 @@ public class SaveDB
 
             System.out.println("Done");
         } catch (Exception ex){
-            ex.printStackTrace();
+            System.out.println("Error reading file '" + filename + "'");
         } finally {
             if (fout != null) {
                 try {

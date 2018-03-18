@@ -70,7 +70,7 @@ public class LoadDB
 
             db = (Database) ois.readObject();
         } catch (Exception ex){
-            ex.printStackTrace();
+            System.out.println("Error reading file '" + filename + "'");
         }  finally {
 
             if (fin != null) {
